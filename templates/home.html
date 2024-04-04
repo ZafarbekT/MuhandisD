@@ -1,0 +1,560 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- carousel -->
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+      aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+      aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+      aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+      aria-label="Slide 4"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+      aria-label="Slide 5"></button>
+  </div>
+  <div class="carousel-inner">
+
+    <div class="carousel-item active " data-bs-interval="2000">
+      <img src="{% static 'images/carousel/c1.jpg' %}" class=" w-100" alt="...">
+    </div>
+
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{% static 'images/carousel/c2.jpg' %}" class=" w-100" alt="...">
+    </div>
+
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{% static 'images/carousel/c3.jpg' %}" class=" w-100" alt="...">
+    </div>
+
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{% static 'images/carousel/c4.jpg' %}" class=" w-100" alt="...">
+    </div>
+
+    <div class="carousel-item" data-bs-interval="1000">
+      <img src="{% static 'images/carousel/c5.jpg' %}" class=" w-100" alt="...">
+    </div>
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- news section starts -->
+<section id="new" class="about section-padding">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="section-header  text-center pb-5">
+        <h2 class="fw-bold">Yangiliklar</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+      {% for item in news %}
+      <div class="col">
+        <div class="card " id="card">
+          <img src="{{ item.news_photo.url }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text"><small class="text-muted">KIUT - {{ item.created_date }}</small></p>
+            <h5 class="card-title fw-bold">{{ item.news_theme }}</h5>
+            <p class="card-text">{{ item.short_description }}</p>
+            <a href="{% url 'oneNewsDetail' item.pk %}" class="card-link cl"><span>Read More<i id="icon"
+                  class="fa-solid fa-arrow-right"></i></span></a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+
+
+    <div class="row mt-5">
+
+      <div class="col"></div>
+
+      <div class="col vid loc">
+        <a class="btn butn fw-bold" href="{% url 'allNews' %}" type="button">Barcha yangiliklarni ko'rish
+          <i id="icon" class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="col"></div>
+
+    </div>
+
+  </div>
+</section>
+<!-- news section Ends -->
+
+<!-- activity section Starts -->
+<section class="services section-padding" id="activity">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="section-header  text-center pb-5">
+        <h2 class="fw-bold">Faoliyat Turlari</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+
+    <div id="carouselExampleControls" style="background-color: #fff;" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner" id="carinner">
+
+        <div class="carousel-item ">
+          <div class="card kart mb-3">
+            <div class="row g-0">
+              <div class="col-12 col-md-4">
+                <img src="{% static 'images/activities/soha1.jpeg' %}" class="img-fluid rasm rounded-start mb-4"
+                  alt="...">
+              </div>
+              <div class="col-12 col-md-8">
+                <div class="card-body mt-5">
+                  <h5 class="card-title fw-bolder mt-3 " style="color: #fff;font-size: 45px;">CAD</h5>
+                  <p class="card-text  fw-bold mt-5 mx-3" style="color: #fff;letter-spacing: 1px;">CAD (Computer-Aided
+                    Design) 3D model qurish, tarkibiy detallarni yaratish va kompyuter yordamidadizayn va ishlab
+                    chigarishni oson va samarali qilishgayordam beradigan kompyuter dasturlari.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="card kart mb-3">
+            <div class="row g-0">
+              <div class="col-12 col-md-4">
+                <img src="{% static 'images/activities/soha2.jpeg' %}" class="img-fluid rasm rounded-start mb-4"
+                  alt="...">
+              </div>
+              <div class="col-12 col-md-8">
+                <div class="card-body mt-5">
+                  <h5 class="card-title fw-bolder mt-3 " style="color: #fff;font-size: 45px;">Industry 4.0</h5>
+                  <p class="card-text  fw-bold mt-5 mx-3" style="color: #fff;letter-spacing: 1px;">Industry 4.0
+                    sanoatning yangi o'zgarishlarga mosravishda rivojlanishi va avtomatlashtirishining yanada ko'payishi
+                    uchun innovatsion texnologiyalar,avtomatlashtirilgan tizimlar, ma'lumotlar tahlili,internet of
+                    things (loT), sensortexnika, va boshga texnologiyalardan foydalanishni ifodalaydi.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="card kart mb-3">
+            <div class="row g-0">
+              <div class="col-12 col-md-4">
+                <img src="{% static 'images/activities/soha4.jpeg' %}" class="img-fluid rasm rounded-start mb-4"
+                  alt="...">
+              </div>
+              <div class="col-12 col-md-8">
+                <div class="card-body mt-5">
+                  <h5 class="card-title fw-bolder mt-3 " style="color: #fff;font-size: 45px;">Pnevmoavtomatika</h5>
+                  <p class="card-text  fw-bold mt-5 mx-3" style="color: #fff;letter-spacing: 1px;">Pnevmoavtomatika-Havo
+                    yordamida avtomatik tarzda tizmlarni boshqarishni o'rgatadi.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="card kart mb-3">
+            <div class="row g-0">
+              <div class="col-12 col-md-4">
+                <img src="{% static 'images/activities/soha3.jpeg' %}" class="img-fluid rasm rounded-start mb-4"
+                  alt="...">
+              </div>
+              <div class="col-12 col-md-8">
+                <div class="card-body mt-5">
+                  <h5 class="card-title fw-bolder mt-3 " style="color: #fff;font-size: 45px;">PLC</h5>
+                  <p class="card-text  fw-bold mt-5 mx-3" style="color: #fff;letter-spacing: 1px;">(Programmable Logic
+                    Controller) elektr texnikasi va avtomatlashtirilgan boshqaruv sohasida ishlatiluvchi ma'lumotlarni
+                    o'qib olish, tushunish, va boshqarish uchun ishlab chiqarilgan avtomatik qurilma va boshqaruv
+                    tizimi.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="card kart mb-3">
+            <div class="row g-0">
+              <div class="col-12 col-md-4">
+                <img src="{% static 'images/activities/soha5.jpeg' %}" class="img-fluid rasm rounded-start mb-4"
+                  alt="...">
+              </div>
+              <div class="col-12 col-md-8">
+                <div class="card-body mt-5">
+                  <h5 class="card-title fw-bolder mt-3 " style="color: #fff;font-size: 45px;">Sensorika</h5>
+                  <p class="card-text  fw-bold mt-5 mx-3" style="color: #fff;letter-spacing: 1px;">Elektronika va
+                    muhandislik sohalari bo'yichaishlatiluvchi sensorni o'rganish va ularning ishlashprinsiplari,
+                    sensorni boshqarish va ma'lumot olishning nazariy va amaliy asoslari bilan shug'ullanadigan soha.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="card kart mb-3">
+            <div class="row g-0">
+              <div class="col-12 col-md-4">
+                <img src="{% static 'images/activities/soha6.jpeg' %}" class="img-fluid rasm rounded-start mb-4"
+                  alt="...">
+              </div>
+              <div class="col-12 col-md-8">
+                <div class="card-body mt-5">
+                  <h5 class="card-title fw-bolder mt-3 " style="color: #fff;font-size: 45px;">Arduino</h5>
+                  <p class="card-text  fw-bold mt-5 mx-3" style="color: #fff;letter-spacing: 1px;">Arduino platformasi,
+                    sensorlar, aktuatorlar,yordamchi qurilmalar va boshga elektronik modullarni birlashtirish,
+                    dasturlashn va boshgarisiishlatiladi.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="card kart mb-3">
+            <div class="row g-0">
+              <div class="col-12 col-md-4">
+                <img src="{% static 'images/activities/soha7.jpeg' %}" class="img-fluid rasm rounded-start mb-4"
+                  alt="...">
+              </div>
+              <div class="col-12 col-md-8">
+                <div class="card-body mt-5">
+                  <h5 class="card-title fw-bolder mt-3 " style="color: #fff;font-size: 45px;">Vodorod, quyosh, shamol
+                    energiyalari</h5>
+                  <p class="card-text  fw-bold mt-5 mx-3" style="color: #fff;letter-spacing: 1px;">Qayta tiklanuvchi
+                    energiya manbalarini xususanvodorod yoqilg'isi shamol energiyasi va quyoshenergiyasini o'rganish,
+                    ulardan elekr energiyasini olishtexnalogiyalarini organish maqsad qilinadi..</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="card kart mb-3">
+            <div class="row g-0">
+              <div class="col-12 col-md-4">
+                <img src="{% static 'images/activities/soha8.jpeg' %}" class="img-fluid rasm rounded-start mb-4"
+                  alt="...">
+              </div>
+              <div class="col-12 col-md-8">
+                <div class="card-body mt-5">
+                  <h5 class="card-title fw-bolder mt-3 " style="color: #fff;font-size: 45px;">Gidroavtomatika</h5>
+                  <p class="card-text  fw-bold mt-5 mx-3" style="color: #fff;letter-spacing: 1px;">Gidroavtomatika-Har
+                    ganday mashina va tizimlarni boshqarishdagidravlik va avtomatik tizimlarni ishlatishni o'rgatadigan
+                    muhandislik sohasi.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="card kart mb-3">
+            <div class="row g-0">
+              <div class="col-12 col-md-4">
+                <img src="{% static 'images/activities/soha9.jpeg' %}" class="img-fluid rasm rounded-start mb-4"
+                  alt="...">
+              </div>
+              <div class="col-12 col-md-8">
+                <div class="card-body mt-5">
+                  <h5 class="card-title fw-bolder mt-3 " style="color: #fff;font-size: 45px;">Elektrotexnika-Elektr</h5>
+                  <p class="card-text  fw-bold mt-5 mx-3" style="color: #fff;letter-spacing: 1px;">Elektrotexnika-Elektr
+                    energiyasini boshqarish, uzatish va uning tuzilishlarini o'rganuvchi va amalga oshiruvchi
+                    muhandislik sohasi.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item active">
+          <div class="card kart mb-3">
+            <div class="row g-0">
+              <div class="col-12 col-md-4">
+                <img src="{% static 'images/activities/soha10.jpeg' %}" class="img-fluid rasm rounded-start mb-4"
+                  alt="...">
+              </div>
+              <div class="col-12 col-md-8">
+                <div class="card-body mt-5">
+                  <h5 class="card-title fw-bolder mt-3 " style="color: #fff;font-size: 45px;">Robot-manipulyator</h5>
+                  <p class="card-text  fw-bold mt-5 mx-3" style="color: #fff;letter-spacing: 1px;">Har xil turdagi
+                    vazifalarni bajarish uchun ishlab chiqarilgan, qo'llaniladigan va modifikatsiyalash mumkin bo'lgan
+                    qurilma turlari bo'lib, biror narsani ko'chirish, joylashtirish,olish yoki boshqa harakatlarini
+                    amalga oshirishda
+                    foydalaniladi.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="card kart mb-3">
+            <div class="row g-0">
+              <div class="col-12 col-md-4">
+                <img src="{% static 'images/activities/soha11.jpg' %}" class="img-fluid rasm rounded-start mb-4"
+                  alt="...">
+              </div>
+              <div class="col-12 col-md-8">
+                <div class="card-body mt-5">
+                  <h5 class="card-title fw-bolder mt-3 " style="color: #fff;font-size: 45px;">Servo</h5>
+                  <p class="card-text  fw-bold mt-5 mx-3" style="color: #fff;letter-spacing: 1px;">Boshqaruv
+                    jarayonlarini avtomatlashtirish va to'gʻriboshqarishda juda samarali va ishonchli
+                    bo'lib,o'zgaruvchan va to'g'ri boshqariladigan harakatlarni
+                    amalga oshirishga yordam beradi.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+  </div>
+</section>
+<!-- activity section Ends -->
+
+
+<!-- QILINGAN LOYIHALAR STARTS -->
+<section id="portfolio" class="portfolio section-padding">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-header  text-center pb-5">
+          <h2 class="fw-bold">Qilingan Loyihalar</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 ">
+
+      {% for item in projects %}
+      <div class="col ">
+        <div class="tcontainer">
+          <div class="tcard">
+            <div class="tface face1">
+              <div class="tcontent">
+                <img src="{{ item.project_photo.url }}" class="trasm">
+              </div>
+            </div>
+            <div class="tface face2">
+              <div class="tcontent">
+                <h5 class="card-title fw-bold">{{ item.project_name }}</h5>
+                <p>{{ item.project_description }}</p>
+                <a href="{% url 'oneProjectDetail' item.pk %}">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+
+    <div class="row mt-2">
+      <div class="col">
+
+      </div>
+      <div class="col vid loc">
+        <a href="{% url 'allProjects' %}" class="btn butn fw-bold" type="button">Barcha loyihalarni ko'rish ko'rish<i
+            id="icon" class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="col">
+
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- QILINGAN LOYIHALAR ENDS -->
+
+
+<!-- TEAM STARTS -->
+<section class="team section-padding" id="team">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-header  text-center pb-5">
+          <h2 class="fw-bold">Bitiruvchilar</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+      {% for item in students %}
+      <div class="col-12 mt-3 mb-2 col-md-6 col-lg-3" id="studentcard" style="cursor: pointer;">
+        <div class="card text-center">
+          <div class="card-body">
+            <img src="{{ item.student_photo.url }}" alt="{{ item.student_fullname }}" class="cardimg">
+            <a href="{% url 'oneStudentDetail' item.pk %}" style="text-decoration: none;">
+              <h3 class="card-title  py-2">{{ item.student_fullname }}</h3>
+            </a>
+            <p class="card-text">{{ item.student_bio }}</p>
+            <p class="socials">
+              <a href="{{ item.student_link1 }}"><i class="bi bi-twitter mx-1"></i></a>
+              <a href="{{ item.student_link2 }}"><i class="bi bi-facebook mx-1"></i></a>
+              <a href="{{ item.student_link3 }}"><i class="bi bi-linkedin  mx-1"></i></a>
+              <a href="{{ item.student_link4 }}"><i class="bi bi-telegram  mx-1"></i></a>
+            </p>
+
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+      <div class="row mt-5">
+        <div class="col">
+
+        </div>
+        <div class="col vid loc">
+          <button class="btn butn fw-bold" type="button">
+            <a href="{% url 'allStudents' %}" style="text-decoration: none; color: #fff;">Barcha talabalarni ko'rish</a>
+            <i id="icon" class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+        <div class="col">
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- TEAM ENDS -->
+
+
+<!-- CONTACTS STARTS -->
+<section id="contact" class="contact section">
+  <div class="container  mb-5">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-header  text-center pb-5">
+          <h2 class="fw-bold">Hamkorlar </h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="slider">
+        <div class="slide-track">
+
+          <!-- PARTNERS IMG CODE -->
+          <div class="slide">
+            <a href="https://vosiq.uz/">
+              <img src="{% static 'images/partners/partner1.png' %}" />
+            </a>
+          </div>
+
+          <div class="slide">
+            <a href="https://flyasiana.com/">
+              <img src="{% static 'images/partners/partner2.png' %}" />
+            </a>
+          </div>
+
+          <div class="slide">
+            <a href="https://oxbridgeschool.uz/">
+              <img src="{% static 'images/partners/partner3.png' %}" />
+            </a>
+          </div>
+
+          <div class="slide">
+            <a href="https://it-park.uz/">
+              <img src="{% static 'images/partners/partner4.png' %}" />
+            </a>
+          </div>
+
+          <div class="slide">
+            <a href="https://akfagroup.com/">
+              <img src="{% static 'images/partners/partner5.png' %}" />
+            </a>
+          </div>
+
+          <div class="slide">
+            <a href="https://mimar.uz/ru/">
+              <img src="{% static 'images/partners/partner6.png' %}" />
+            </a>
+          </div>
+
+          <div class="slide">
+            <a href="https://www.hyatt.com/">
+              <img src="{% static 'images/partners/partner7.png' %}" />
+            </a>
+          </div>
+
+          <div class="slide">
+            <a href="https://uzbektourism.uz/en">
+              <img src="{% static 'images/partners/partner8.png' %}" />
+            </a>
+          </div>
+
+          <div class="slide">
+            <a href="https://www.iu.org/">
+              <img src="{% static 'images/partners/partner9.png' %}" />
+            </a>
+          </div>
+          <!-- IMG CODE ENDS -->
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+<!-- CONTACTS ENDS -->
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--for getting the form download the code from download button-->

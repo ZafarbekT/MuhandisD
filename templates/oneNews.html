@@ -1,0 +1,158 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhandis-D</title>
+
+    <!-- All CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+
+  <body>
+
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-lg bg-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <img src="{% static 'images/logo.png' %}" width="261" height="66">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa-solid fa-caret-down"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav    ms-auto mb-2 mb-lg-0 ">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Bosh sahifa</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="{% url 'home' %}">Yangiliklar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Faoliyat</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Loyihalar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Hamkorlar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Bog'lanish</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                aria-expanded="false">
+                <img src="{% static 'images/uz_flag.jpg' %}" class="img m-1" alt="UZ">UZ
+              </a>
+              <ul class="dropdown-menu uli">
+                <li><a class="dropdown-item liu" href="#" data-lang="en"><img src="{% static 'images/en_flag.jpg' %}"
+                      class="img m-1" alt="EN">EN</a></li>
+                <li><a class="dropdown-item liu" href="#" data-lang="uz"><img src="{% static 'images/uz_flag.jpg' %}"
+                      class="img m-1" alt="UZ">UZ</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- NAVBAR END -->
+
+    <!-- CONTENT NEWS -->
+    <section>
+      <div class="container-fluid container-lg mt-5">
+        <div class="row justify-content-center mt-5">
+          <div class="col-md-8 mt-5">
+
+            <article class="news-detail">
+
+              <div class="news-img">
+                <img src="{{ object.news_photo.url }}" class="img-fluid" title="None" alt="None">
+              </div>
+
+              <h4 class="p-4">{{ object.news_theme }}</h4>
+
+              <hr style="color: #0096db; opacity: 0.6; height: 3px; margin-top: 5px">
+
+              <p style="margin-bottom: 11px; text-align: justify;">
+                <span style="font-size: 11pt;">
+                  <span style="line-height: 107%;">
+                    <span>{{ object.full_description }}</span>
+                  </span>
+                </span>
+              </p>
+
+              <hr style="color: #0096db; opacity: 0.6; height: 3px; margin-top: 5px">
+
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CONTENT NEWS -->
+
+
+    <!-- FOOTER START -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <a class="navbar-brand" href="{% url 'home' %}">
+              <img src="{% static 'images/logo.png '%}" width="261" height="66">
+            </a>
+          </div>
+          <div class="footer-col">
+            <ul>
+              <li><a href="#">Bosh sahifa</a></li>
+              <li><a href="#">Loyiha haqida</a></li>
+              <li><a href="#">Qilingan loyihalar</a></li>
+              <li><a href="#">Yangiliklar</a></li>
+              <li><a href="#">Faoliyat</a></li>
+              <li><a href="#">Biz bilan bog'lanish</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <div class="contact">
+              <a class="contacts-a" href="#">
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="icon-text">100121 Toshkent, Shota Rustaveli ko'chasi,156-uy</span>
+              </a>
+              <a class="contacts-a" href="#">
+                <i class="fa-solid fa-phone"></i>
+                <span class="icon-text">+998 78 129 40 40</span>
+              </a>
+              <a class="contacts-a" href="#">
+                <i class="fa-solid fa-envelope"></i>
+                <span class="icon-text">info@kiut.uz</span>
+              </a>
+            </div>
+            <h4>Obuna bo'ling</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer ends -->
+
+
+    <!-- All JS -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+  </body>
+
+</html>
